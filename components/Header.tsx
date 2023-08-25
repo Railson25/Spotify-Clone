@@ -6,6 +6,7 @@ import {RxCaretLeft, RxCaretRight } from 'react-icons/rx'
 import {HiHome} from 'react-icons/hi'
 import { BiSearch } from "react-icons/bi"
 import  Button  from "./Button"
+import { useAuthModal } from "@/hooks/useAuthModal"
 
 interface HeaderProps{
     children: React.ReactNode
@@ -15,7 +16,11 @@ interface HeaderProps{
 export const Header = ({children, className}: HeaderProps) => {
 
     const router = useRouter()
+    const authModal = useAuthModal()
+
+
     const handleLogout = () => {}
+    
     return(
         <div
             className={twMerge('h-fit bg-gradient-to-b from-emerald-800 p-6', className) }
@@ -63,7 +68,7 @@ export const Header = ({children, className}: HeaderProps) => {
                     <>
                     <div>
                         <Button
-                            onClick={() => {}}
+                            onClick={authModal.onOpen}
                             className="bg-transparent text-neutral-300 font-medium"
                         >
                         Sign up 
@@ -71,7 +76,7 @@ export const Header = ({children, className}: HeaderProps) => {
                     </div>
                     <div>
                         <Button
-                            onClick={() => {}}
+                            onClick={authModal.onOpen}
                             className="bg-white px-6 py-2"
                         >
                         Log in
