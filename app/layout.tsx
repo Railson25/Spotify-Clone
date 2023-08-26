@@ -6,6 +6,7 @@ import { ClientOnly } from '@/components/ClientOnly'
 import SupabaseProvider from '@/providers/SupabaseProvider'
 import UserProvider from '@/providers/useProvider'
 import { ModalProvider } from '@/providers/modalProvider'
+import { ToasterProvider } from '@/providers/ToasterProvider'
 
 const figtree = Figtree({ subsets: ['latin'] })
 
@@ -22,6 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={figtree.className}>
+        <ToasterProvider />
         <SupabaseProvider>
           <UserProvider>
             <ClientOnly>
