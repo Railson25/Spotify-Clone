@@ -16,7 +16,7 @@ export const ListItem = ({href, image, name}: ListItemProps) => {
     const router = useRouter()
 
     const onClick = () => {
-        router.push(href)
+        router.push('/liked')
     }
 
     return(
